@@ -49,9 +49,8 @@ If a valid request is submitted, the api returns a JSON response in the followin
 If a valid request is submitted, but there is nothing in the database that matches the criteria, the api returns an empty JSON response:
 ```javascript
 {
-  "status_code" : 200
-  "message" : ok
-  "data" : []
+  "status_code" : 404
+  "message" : "No data found for table {table_name} with conditions {params}"
 }
 ```
 
