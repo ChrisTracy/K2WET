@@ -3,11 +3,17 @@
 
 ## Examples
 
+Get 601 form data for specified call sign 
 ```http
 GET /api/HD?call_sign=k2wet
 ```
+Get name and address information for anyone with the last name Smith in Richmond VA
 ```http
-GET /api/EN?first_name=John&L
+GET /api/EN?city=richmond&state=va&last_name=smith
+```
+A wildcard lookup for anyone with the last name Johnson and a first name containing the letter "j" in Los Angeles CA
+```http
+GET /api/EN?city=los angeles&state=ca&last_name=johnson&first_name=j*
 ```
 
 | Table | Table Contents | Common Fields
@@ -16,10 +22,10 @@ GET /api/EN?first_name=John&L
 | `EN` | Names and addresses | `call_sign` `unique_system_identifier` `entity_name` `first_name` `last_name` `street_address` `city` `state` `zip_code`|
 | `HS` | Application/License History  | `callsign` `unique_system_identifier` `code` `log_date` |
 | `AM` | Amateur data  | `callsign` `unique_system_identifier` `operator_class` `group_code` `region_code` `previous_operator_class`|
-| `CO` | FCC Comments  | `call_sign` `unique_system_identifier` `comment_date` `description` |
-| `SC` | License Level Canned Special Conditions  | `call_sign` `unique_system_identifier` `special_condition_type` `special_condition_code` |
-| `LA` | License Attachment information | `call_sign` `unique_system_identifier` `attachment_code` `attachment_desc` `attachment_date` `action_performed` |
-| `SF` | License Level Free Form Special Conditions  | `call_sign` `unique_system_identifier` `lic_freeform_cond_type` `unique_lic_freeform_id` `lic_freeform_condition` |
+| `CO` | FCC Comments  | `callsign` `unique_system_identifier` `comment_date` `description` |
+| `SC` | License Level Canned Special Conditions  | `callsign` `unique_system_identifier` `special_condition_type` `special_condition_code` |
+| `LA` | License Attachment information | `callsign` `unique_system_identifier` `attachment_code` `attachment_desc` `attachment_date` `action_performed` |
+| `SF` | License Level Free Form Special Conditions  | `callsign` `unique_system_identifier` `lic_freeform_cond_type` `unique_lic_freeform_id` `lic_freeform_condition` |
 
 ## Responses
 If an valid request is submitted, the api returns a JSON response in the following format:
