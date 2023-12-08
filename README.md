@@ -1,5 +1,9 @@
-# K2WET
+# K2WET ULS API
 
+This api is built off of the sqliterest image. Data is is served exactly as it sits in the sqlite database. The table name is defined in the route and queries follow a question mark.
+```http
+GET /api/{table_name}?field1=value&field2=value2
+```
 
 ## Examples
 
@@ -15,6 +19,12 @@ A wildcard lookup for anyone with the last name Johnson and a first name contain
 ```http
 GET /api/EN?city=los angeles&state=ca&last_name=johnson&first_name=j*
 ```
+The API will only return the fields if there is a value in it. If you want all of the fields you can use the all_fields parameter
+```http
+GET /api/HD?call_sign=k2wet&all_fields=true
+```
+
+## Endpoints and parameters
 
 | Table | Table Contents | Common Fields
 | :--- | :--- | :--- |
@@ -28,7 +38,7 @@ GET /api/EN?city=los angeles&state=ca&last_name=johnson&first_name=j*
 | `SF` | License Level Free Form Special Conditions  | `callsign` `unique_system_identifier` `lic_freeform_cond_type` `unique_lic_freeform_id` `lic_freeform_condition` |
 
 ## Responses
-If an valid request is submitted, the api returns a JSON response in the following format:
+If a valid request is submitted, the api returns a JSON response in the following format:
 ```javascript
 {
   "status_code" : 200
@@ -36,7 +46,7 @@ If an valid request is submitted, the api returns a JSON response in the followi
   "data" : [json_data]
 }
 ```
-If an valid request is submitted, but there is nothing in the database that matches the criteria, the api returns an empty JSON response:
+If a valid request is submitted, but there is nothing in the database that matches the criteria, the api returns an empty JSON response:
 ```javascript
 {
   "status_code" : 200
@@ -64,3 +74,7 @@ Gophish returns the following status codes in its API:
 | 400 | `BAD REQUEST` |
 | 404 | `NOT FOUND` |
 | 500 | `INTERNAL SERVER ERROR` |
+
+## Notes
+
+As stated above, data is served through the api exactly as it sits on the FCC ULS database. Why they used "call_sign" in the first two tables and "callsign" in the other six tables is a mystery to me. 
