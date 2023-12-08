@@ -1,6 +1,8 @@
 # K2WET ULS API
 
-This api is built off of the sqliterest image. Data is is served exactly as it sits in the sqlite database. The table name is defined in the route and queries follow a question mark.
+## About the Project
+
+This api is built on top of [sqliteRest](https://github.com/ChrisTracy/sqliteRest). Data is is served exactly as it sits in the sqlite database. The table name is defined in the route and queries follow a question mark. The ULS database is rebuilt and refreshed every monday morning (4AM - 6AM CST) using [ULS2sqlite](https://github.com/ChrisTracy/sqliteRest).
 ```http
 GET /api/{table_name}?field1=value&field2=value2
 ```
@@ -73,6 +75,9 @@ Gophish returns the following status codes in its API:
 | 400 | `BAD REQUEST` |
 | 404 | `NOT FOUND` |
 | 500 | `INTERNAL SERVER ERROR` |
+
+##Rate Limits
+As of right now the api supports 500 records returned and 8 requests per 10 seconds. These limits are subject to change. If you need higher limits you can easily deploy this app with the two libraries listed above. 
 
 ## Notes
 
