@@ -1,25 +1,25 @@
 # K2WET
 
-## Use Cases
 
-
-## Authorization
-
+## Examples
 
 ```http
 GET /api/HD?call_sign=k2wet
+```
+```http
+GET /api/EN?first_name=John&L
 ```
 
 | Table | Table Contents | Common Fields
 | :--- | :--- | :--- |
 | `HD` | Main Form 601 data that carries over to license  | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
-| `EN` | Names and addresses | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
-| `HS` | Application/License History  | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
-| `AM` | Amateur data  | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
-| `CO` | FCC Comments  | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
-| `SC` | License Level Canned Special Conditions  | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
-| `LA` | License Attachment information | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
-| `SF` | License Level Free Form Special Conditions  | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
+| `EN` | Names and addresses | `call_sign` `unique_system_identifier` `entity_name` `first_name` `last_name` `street_address` `city` `state` `zip_code`|
+| `HS` | Application/License History  | `callsign` `unique_system_identifier` `code` `log_date` |
+| `AM` | Amateur data  | `callsign` `unique_system_identifier` `operator_class` `group_code` `region_code` `previous_operator_class`|
+| `CO` | FCC Comments  | `call_sign` `unique_system_identifier` `comment_date` `description` |
+| `SC` | License Level Canned Special Conditions  | `call_sign` `unique_system_identifier` `special_condition_type` `special_condition_code` |
+| `LA` | License Attachment information | `call_sign` `unique_system_identifier` `attachment_code` `attachment_desc` `attachment_date` `action_performed` |
+| `SF` | License Level Free Form Special Conditions  | `call_sign` `unique_system_identifier` `lic_freeform_cond_type` `unique_lic_freeform_id` `lic_freeform_condition` |
 
 ## Responses
 If an valid request is submitted, the api returns a JSON response in the following format:
