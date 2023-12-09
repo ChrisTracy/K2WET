@@ -1,14 +1,12 @@
 # K2WET ULS API
 
 ## About the Project
-
 This api is built on top of [sqliteRest](https://github.com/ChrisTracy/sqliteRest). Data is is served exactly as it sits in the sqlite database. The table name is defined in the route and queries follow a question mark. The ULS database is rebuilt and refreshed every monday morning (4AM - 6AM CST) using [ULS2sqlite](https://github.com/ChrisTracy/sqliteRest).
 ```http
 GET /api/{table_name}?field1=value&field2=value2
 ```
 
 ## Examples
-
 Get 601 form data for specified call sign 
 ```http
 GET /api/HD?call_sign=k2wet
@@ -27,7 +25,6 @@ GET /api/HD?call_sign=k2wet&all_fields=true
 ```
 
 ## Endpoints and parameters
-
 | Table | Table Contents | Common Fields
 | :--- | :--- | :--- |
 | `HD` | Main Form 601 data that carries over to license  | `call_sign` `unique_system_identifier` `license_status` `grant_date` `expired_date` `effective_date` `last_action_date`|
@@ -66,7 +63,6 @@ If an invalid request is submitted, or some other error occurs, the api returns 
 ```
 
 ## Status Codes
-
 The API returns the following status codes:
 
 | Status Code | Description |
@@ -80,5 +76,9 @@ The API returns the following status codes:
 As of right now the api supports 500 records returned and 8 requests within 10 seconds. These limits are subject to change. If you need higher limits you can easily deploy this app with the two libraries listed above. 
 
 ## Notes
-
 As stated above, data is served through the api exactly as it sits on the FCC ULS database. Why they used "call_sign" in the first two tables and "callsign" in the other six tables is a mystery to me. 
+
+## Contributing
+Hosting and maintaining this project is not free and has some ongoing costs. Consider supporting the project if you are using it.
+\
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/christracy)
