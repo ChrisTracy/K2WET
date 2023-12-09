@@ -67,7 +67,7 @@ If an invalid request is submitted, or some other error occurs, the api returns 
 
 ## Status Codes
 
-Gophish returns the following status codes in its API:
+The API returns the following status codes:
 
 | Status Code | Description |
 | :--- | :--- |
