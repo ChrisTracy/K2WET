@@ -77,7 +77,7 @@ Gophish returns the following status codes in its API:
 | 500 | `INTERNAL SERVER ERROR` |
 
 ## Rate Limits
-As of right now the api supports 500 records returned and 8 requests per 10 seconds. These limits are subject to change. If you need higher limits you can easily deploy this app with the two libraries listed above. 
+As of right now the api supports 500 records returned and 8 requests within 10 seconds. These limits are subject to change. If you need higher limits you can easily deploy this app with the two libraries listed above. 
 
 ## Notes
 
